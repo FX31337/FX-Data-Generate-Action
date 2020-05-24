@@ -1,14 +1,14 @@
+# FX Data Generate 🐳 Action
+
 <!-- markdownlint-configure-file { "MD013": { "line_length": 120 } } -->
 <!-- [![Release][github-release-image]][github-release-link] -->
 <!-- [![Docker image][docker-build-image]][docker-build-link] -->
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Status][gha-image-lint-master]][gha-link-lint-master]
-[![][tg-channel-image]][tg-channel-link]
-[![][tg-chat-image]][tg-chat-link]
+[![Telegram channel][tg-channel-image]][tg-channel-link]
+[![Telegram chat][tg-chat-image]][tg-chat-link]
 [![Edit][gitpod-image]][gitpod-link]
-
-# FX Data Generate 🐳 Action
 
 This GitHub Action generates Forex historical data in CSV format.
 
@@ -18,7 +18,8 @@ Supported formats:
 
 - CSV
 
-To convert CSV file into different formats, use [FX-Data-Convert-Action](https://github.com/EA31337/FX-Data-Convert-Action) action.
+To convert CSV file into different formats,
+use [FX-Data-Convert-Action](https://github.com/EA31337/FX-Data-Convert-Action) action.
 
 ## File Inputs
 
