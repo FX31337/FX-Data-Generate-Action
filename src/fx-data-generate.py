@@ -224,7 +224,7 @@ if __name__ == '__main__':
                                 dest='pattern',
                                 choices=['none', 'wave', 'curve', 'zigzag', 'random'],
                                 help='Modeling pattern, all of them are deterministic except of \'random\'.', default='none')
-    argumentParser.add_argument('-v', '--volatility',
+    argumentParser.add_argument('-V', '--volatility',
                                 type=float,
                                 action='store',
                                 dest='volatility',
