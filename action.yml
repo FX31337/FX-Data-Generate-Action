@@ -45,21 +45,21 @@ runs:
   args:
 
     - '-o'
-    - '${{ OutputFile }}'
+    - '${{ inputs.OutputFile }}'
 
     - '-d'
-    - '${{ Density }}'
+    - '${{ inputs.Density }}'
     - '-D'
-    - '${{ Digits }}'
+    - '${{ inputs.Digits }}'
     - '-p'
-    - '${{ Pattern }}'
+    - '${{ inputs.Pattern }}'
     - '-s'
-    - '${{ Spread }}'
+    - '${{ inputs.Spread }}'
 
-    - '${{ StartDate }}'
-    - '${{ EndDate }}'
-    - '${{ StartPrice }}'
-    - '${{ EndPrice }}'
+    - '${{ inputs.StartDate }}'
+    - '${{ inputs.EndDate }}'
+    - '${{ inputs.StartPrice }}'
+    - '${{ inputs.EndPrice }}'
 
 branding:
   icon: 'bar-chart'
