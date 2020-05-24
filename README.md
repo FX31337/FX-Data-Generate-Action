@@ -63,7 +63,7 @@ Data points per minute.
 
 ### `Pattern`
 
-Modeling patern to use. Default: `none`.
+Modeling pattern to use. Default: `none`.
 
 Supported patterns:
 
@@ -72,6 +72,10 @@ Supported patterns:
 - `random`
 - `wave`
 - `zigzag`
+
+### `Volatility`
+
+Volatility factor. Default: `1.0`.
 
 <!--
 ## Outputs

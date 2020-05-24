@@ -18,14 +18,14 @@ inputs:
 
   StartPrice:
     description: 'Starting bid price'
-    default: 1.00
+    default: 1.0
   EndPrice:
     description: 'Ending bid price'
-    default: 2.00
+    default: 2.0
 
   Density:
     description: 'Data points per minute'
-    default: 1.00
+    default: 1.0
   Digits:
     description: 'Decimal digits of prices'
     default: 5
@@ -35,6 +35,9 @@ inputs:
   Spread:
     description: 'Spread between prices (in points)'
     default: 10
+  Volatility:
+    description: 'Volatility factor'
+    default: 1.0
 
 # outputs:
 #  foo: # id of output
@@ -55,6 +58,8 @@ runs:
     - '${{ inputs.Pattern }}'
     - '-s'
     - '${{ inputs.Spread }}'
+    - '-V'
+    - '${{ inputs.Volatility }}'
 
     - '${{ inputs.StartDate }}'
     - '${{ inputs.EndDate }}'
