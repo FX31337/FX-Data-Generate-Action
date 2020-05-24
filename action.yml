@@ -1,0 +1,66 @@
+# action.yml
+---
+name: 'FX Data Generate Action'
+description: 'Generates Forex historical data in CSV format'
+author: 'kenorb'
+inputs:
+
+  OutputFile:
+    description: 'The filename to generate data to'
+    default: 'data'
+
+  StartDate:
+    description: 'Starting date (in yyyy.mm.dd format)'
+    default: '2020.01.01'
+  EndDate:
+    description: 'Ending date (in yyyy.mm.dd format)'
+    default: '2020.01.31'
+
+  StartPrice:
+    description: 'Starting bid price'
+    default: 1.00
+  EndPrice:
+    description: 'Ending bid price'
+    default: 2.00
+
+  Density:
+    description: 'Data points per minute'
+    default: 1.00
+  Digits:
+    description: 'Decimal digits of prices'
+    default: 5
+  Pattern:
+    description: 'Modeling pattern'
+    default: 'none'
+  Spread:
+    description: 'Spread between prices (in points)'
+    default: 10
+
+# outputs:
+#  foo: # id of output
+#    description: 'Foo'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+
+    - '-o'
+    - '${{ OutputFile }}'
+
+    - '-d'
+    - '${{ Density }}'
+    - '-D'
+    - '${{ Digits }}'
+    - '-p'
+    - '${{ Pattern }}'
+    - '-s'
+    - '${{ Spread }}'
+
+    - '${{ StartDate }}'
+    - '${{ EndDate }}'
+    - '${{ StartPrice }}'
+    - '${{ EndPrice }}'
+
+branding:
+  icon: 'bar-chart'
+  color: 'green'
