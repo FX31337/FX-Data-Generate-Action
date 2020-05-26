@@ -16,3 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Runs local action
         uses: ./
+      - name: Validates format of CSV file
+        uses: blackstar257/docker-csvlint@master
+        env:
+          ACTION_STATE_NAME: "data.csv"
