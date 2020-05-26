@@ -1,7 +1,7 @@
 # action.yml
 ---
 name: 'FX Data Generate Action'
-description: 'Generates Forex historical data in CSV format'
+description: 'Generates dummy Forex historical data in CSV format'
 author: 'kenorb'
 inputs:
 
@@ -73,5 +73,5 @@ runs:
     - '${{ inputs.EndPrice }}'
 
 branding:
-  icon: 'bar-chart'
+  icon: 'bar-chart-2'
   color: 'green'
