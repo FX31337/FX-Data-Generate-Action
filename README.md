@@ -77,6 +77,12 @@ Supported patterns:
 
 Volatility factor. Default: `1.0`.
 
+## Other Inputs
+
+### `CmdArgs`
+
+Extra arguments to pass to the script. Default: `-v` (for verbose output).
+
 <!--
 ## Outputs
 

@@ -5,6 +5,10 @@ description: 'Generates Forex historical data in CSV format'
 author: 'kenorb'
 inputs:
 
+  CmdArgs:
+    description: 'Extra script arguments'
+    default: '-v'
+
   OutputFile:
     description: 'The filename to generate data to'
     default: 'data'
@@ -60,6 +64,8 @@ runs:
     - '${{ inputs.Spread }}'
     - '-V'
     - '${{ inputs.Volatility }}'
+
+    - '${{ inputs.CmdArgs }}'
 
     - '${{ inputs.StartDate }}'
     - '${{ inputs.EndDate }}'
