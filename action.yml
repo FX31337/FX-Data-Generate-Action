@@ -11,7 +11,7 @@ inputs:
 
   OutputFile:
     description: 'The filename to generate data to'
-    default: 'data'
+    default: 'data.csv'
 
   StartDate:
     description: 'Starting date (in yyyy.mm.dd format)'

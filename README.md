@@ -25,7 +25,7 @@ use [FX-Data-Convert-Action](https://github.com/FX31337/FX-Data-Convert-Action) 
 
 ### `OutputFile`
 
-The CSV filename to generate data to. Default: `data`.
+The CSV filename to generate data to. Default: `data.csv`.
 
 ## Date Inputs
 
