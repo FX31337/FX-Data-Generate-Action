@@ -1,8 +1,8 @@
 # FX Data Generate 🐳 Action
 
 <!-- markdownlint-configure-file { "MD013": { "line_length": 120 } } -->
-<!-- [![Release][github-release-image]][github-release-link] -->
 <!-- [![Docker image][docker-build-image]][docker-build-link] -->
+[![Release][github-release-image]][github-release-link]
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Status][gha-image-lint-master]][gha-link-lint-master]
@@ -10,15 +10,11 @@
 [![Telegram chat][tg-chat-image]][tg-chat-link]
 [![Edit][gitpod-image]][gitpod-link]
 
-This GitHub Action generates Forex historical data in CSV format.
+This GitHub Action generates dummy Forex historical data in CSV format.
 
-## Supported formats
+By default it generates the file in CSV format.
 
-Supported formats:
-
-- CSV
-
-To convert CSV file into different formats,
+To convert CSV file to different formats,
 use [FX-Data-Convert-Action](https://github.com/FX31337/FX-Data-Convert-Action) action.
 
 ## File Inputs
@@ -91,10 +87,34 @@ Extra arguments to pass to the script. Default: `-v` (for verbose output).
 Foo bar.
 -->
 
-## Example usage
+## Usage
+
+### Latest release
+
+```yaml
+uses: fx31337/fx-data-generate-action@v1
+```
+
+### Specific release
+
+```yaml
+uses: fx31337/fx-data-generate-action@v1.0.0
+```
+
+Note: Check _Releases_ for more details.
+
+### Latest development version
 
 ```yaml
 uses: fx31337/fx-data-generate-action@master
+```
+
+### Overriding default inputs
+
+```yaml
+uses: fx31337/fx-data-generate-action@master
+with:
+    Pattern: 'zigzag'
 ```
 
 ### Support
