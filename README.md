@@ -1,6 +1,5 @@
 # FX Data Generate 🐳 Action
 
-<!-- markdownlint-configure-file { "MD013": { "line_length": 120 } } -->
 <!-- [![Docker image][docker-build-image]][docker-build-link] -->
 [![Release][github-release-image]][github-release-link]
 [![Status][gha-image-action-master]][gha-link-action-master]
@@ -17,77 +16,9 @@ By default it generates the file in CSV format.
 To convert CSV file to different formats,
 use [FX-Data-Convert-Action](https://github.com/FX31337/FX-Data-Convert-Action) action.
 
-## File Inputs
-
-### `OutputFile`
-
-The CSV filename to generate data to. Default: `data.csv`.
-
-## Date Inputs
-
-### `StartDate`
-
-Starting date (in yyyy.mm.dd format). Default: `2020.01.01`.
-
-### `EndDate`
-
-Ending date (in yyyy.mm.dd format). Default: `2020.01.31`.
-
-## Price Inputs
-
-### `StartPrice`
-
-Starting bid price. Default: `1.00`.
-
-### `EndPrice`
-
-Ending bid price. Default: `2.00`.
-
-### `Digits`
-
-Decimal digits of prices. Default: `5`.
-
-### `Spread`
-
-Spread between prices (in points).
-
-## Modeling Inputs
-
-### `Density`
-
-Data points per minute.
-
-### `Pattern`
-
-Modeling pattern to use. Default: `none`.
-
-Supported patterns:
-
-- `none`
-- `curve`
-- `random`
-- `wave`
-- `zigzag`
-
-### `Volatility`
-
-Volatility factor. Default: `1.0`.
-
-## Other Inputs
-
-### `CmdArgs`
-
-Extra arguments to pass to the script. Default: `-v` (for verbose output).
-
-<!--
-## Outputs
-
-### `foo`
-
-Foo bar.
--->
-
 ## Usage
+
+For full documentation, please read: [GitHub Actions Documentation](https://help.github.com/en/actions).
 
 ### Latest release
 
@@ -117,7 +48,79 @@ with:
     Pattern: 'zigzag'
 ```
 
-### Support
+## Inputs
+
+### File Inputs
+
+#### `OutputFile`
+
+The CSV filename to generate data to. Default: `data.csv`.
+
+### Date Inputs
+
+#### `StartDate`
+
+Starting date (in yyyy.mm.dd format). Default: `2020.01.01`.
+
+#### `EndDate`
+
+Ending date (in yyyy.mm.dd format). Default: `2020.01.31`.
+
+### Price Inputs
+
+#### `StartPrice`
+
+Starting bid price. Default: `1.00`.
+
+#### `EndPrice`
+
+Ending bid price. Default: `2.00`.
+
+#### `Digits`
+
+Decimal digits of prices. Default: `5`.
+
+#### `Spread`
+
+Spread between prices (in points).
+
+### Modeling Inputs
+
+#### `Density`
+
+Data points per minute.
+
+#### `Pattern`
+
+Modeling pattern to use. Default: `none`.
+
+Supported patterns:
+
+- `none`
+- `curve`
+- `random`
+- `wave`
+- `zigzag`
+
+#### `Volatility`
+
+Volatility factor. Default: `1.0`.
+
+### Other Inputs
+
+#### `CmdArgs`
+
+Extra arguments to pass to the script. Default: `-v` (for verbose output).
+
+<!--
+## Outputs
+
+### `foo`
+
+Foo bar.
+-->
+
+## Support
 
 - For bugs/features, raise a [new issue at GitHub](https://github.com/FX31337/FX-Data-Generate-Action/issues).
 - Join our [Telegram group][tg-chat-link] and [channel][tg-channel-link] for help.
