@@ -3,6 +3,7 @@
 # Example usage:
 #  ./gen_bt_data.py -s 10 -p random -v 100 2014.01.01 2014.01.30 2.0 4.0 | gnuplot -p -e "set datafile separator ','; plot '-' using 3 w l"
 
+from __future__ import print_function
 import argparse
 import sys
 import datetime
@@ -10,10 +11,13 @@ import csv
 import random
 from math import ceil, exp, pi, sin
 
-def error(message, exit=True):
-    print('[ERROR]', message)
-    if exit: sys.exit(1)
+def msg(*args, **kwargs):
+    print('[INFO]', *args, file=sys.stderr, **kwargs)
 
+def error(*args, **kwargs):
+    print('[ERROR]', *args, file=sys.stderr, **kwargs)
+    if exit:
+        sys.exit(1)
 
 def volumesFromTimestamp(timestamp, spread):
     longTimestamp = timestamp.timestamp()
@@ -234,45 +238,64 @@ if __name__ == '__main__':
                                 action='store',
                                 dest='outputFile',
                                 help='Write generated data to file instead of standard output.')
-    arguments = argumentParser.parse_args()
+    argumentParser.add_argument('-v', '--verbose',
+                                action='store_true',
+                                dest='verbose',
+                                help='Sets the verbosity logging level')
+    args = argumentParser.parse_args()
 
-    # Check date values
+    # Check date values.
     try:
-        startDate = datetime.datetime.strptime(arguments.startDate, '%Y.%m.%d')
-        endDate   = datetime.datetime.strptime(arguments.endDate,   '%Y.%m.%d')
+        startDate = datetime.datetime.strptime(args.startDate, '%Y.%m.%d')
+        endDate   = datetime.datetime.strptime(args.endDate,   '%Y.%m.%d')
     except ValueError as e:
         error('Bad date format!')
 
-    if endDate < startDate: error('Ending date precedes starting date!')
+    if endDate < startDate:
+        error('Ending date precedes starting date!')
 
-    if arguments.digits <= 0: error('Digits must be larger than zero!')
+    if args.digits <= 0:
+        error('Digits must be larger than zero!')
 
-    if arguments.startPrice <= 0 or arguments.endPrice <= 0: error('Price must be larger than zero!')
+    if args.startPrice <= 0 or args.endPrice <= 0:
+        error('Price must be larger than zero!')
 
-    if arguments.spread < 0: error('Spread must be larger or equal to zero!')
-    spread = arguments.spread/1e5
+    if args.spread < 0:
+        error('Spread must be larger or equal to zero!')
 
-    if arguments.density <= 0: error('Density must be larger than zero!')
+    if args.density <= 0:
+        error('Density must be larger than zero!')
 
-    if arguments.volatility <= 0: error('Volatility must be larger than zero!')
+    if args.volatility <= 0:
+        error('Volatility must be larger than zero!')
 
-    # Select and run appropriate model
-    deltaTime = datetime.timedelta(seconds=60/arguments.density)
+    spread = args.spread/1e5
+    if args.verbose:
+        msg('[INFO] Spread: %.2f' % spread)
+
+    # Select and run appropriate model.
+    deltaTime = datetime.timedelta(seconds=60/args.density)
+    if args.verbose:
+        msg('[INFO] Pattern: %s' % args.pattern)
     rows = None
-    if arguments.pattern == 'none':
-        rows = linearModel(startDate, endDate, arguments.startPrice, arguments.endPrice, deltaTime, spread)
-    elif arguments.pattern == 'zigzag':
-        rows = zigzagModel(startDate, endDate, arguments.startPrice, arguments.endPrice, deltaTime, spread, arguments.volatility)
-    elif arguments.pattern == 'wave':
-        rows = waveModel(startDate, endDate, arguments.startPrice, arguments.endPrice, deltaTime, spread, arguments.volatility)
-    elif arguments.pattern == 'curve':
-        rows = curveModel(startDate, endDate, arguments.startPrice, arguments.endPrice, deltaTime, spread, arguments.volatility)
-    elif arguments.pattern == 'random':
-        rows = randomModel(startDate, endDate, arguments.startPrice, arguments.endPrice, deltaTime, spread, arguments.volatility)
+    if args.pattern == 'none':
+        rows = linearModel(startDate, endDate, args.startPrice, args.endPrice, deltaTime, spread)
+    elif args.pattern == 'zigzag':
+        rows = zigzagModel(startDate, endDate, args.startPrice, args.endPrice, deltaTime, spread, args.volatility)
+    elif args.pattern == 'wave':
+        rows = waveModel(startDate, endDate, args.startPrice, args.endPrice, deltaTime, spread, args.volatility)
+    elif args.pattern == 'curve':
+        rows = curveModel(startDate, endDate, args.startPrice, args.endPrice, deltaTime, spread, args.volatility)
+    elif args.pattern == 'random':
+        rows = randomModel(startDate, endDate, args.startPrice, args.endPrice, deltaTime, spread, args.volatility)
+    if args.verbose:
+        msg('[INFO] Generated rows: %d' % len(rows))
 
-    # output array stdout/file
-    if arguments.outputFile:
-        with open(arguments.outputFile, 'w') as outputFile:
-            toCsv(rows, arguments.digits, outputFile)
+    # Output array stdout/file.
+    if args.outputFile:
+        if args.verbose:
+            msg('[INFO] Output file: %s' % args.outputFile)
+        with open(args.outputFile, 'w') as outputFile:
+            toCsv(rows, args.digits, outputFile)
     else:
-        toCsv(rows, arguments.digits, sys.stdout)
+        toCsv(rows, args.digits, sys.stdout)
