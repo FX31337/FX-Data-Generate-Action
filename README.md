@@ -1,12 +1,10 @@
 # FX Data Generate 🐳 Action
 
-<!-- [![Docker image][docker-build-image]][docker-build-link] -->
-[![Release][github-release-image]][github-release-link]
+[![Tag][github-tag-image]][github-tag-link]
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
 [![Status][gha-image-lint-master]][gha-link-lint-master]
-[![Telegram channel][tg-channel-image]][tg-channel-link]
-[![Telegram chat][tg-chat-image]][tg-chat-link]
+[![Channel][tg-channel-image]][tg-channel-link]
 [![Edit][gitpod-image]][gitpod-link]
 
 This GitHub Action generates dummy Forex historical data in CSV format.
@@ -120,20 +118,24 @@ Extra arguments to pass to the script. Default: `-v` (for verbose output).
 Foo bar.
 -->
 
+## Related actions
+
+- To convert CSV file into different formats,
+  use [FX-Data-Convert-Action](https://github.com/FX31337/FX-Data-Convert-Action) action.
+- To generate CSV file instead,
+  use [FX-Data-Generate-Action](https://github.com/FX31337/FX-Data-Generate-Action) action.
+
 ## Support
 
 - For bugs/features, raise a [new issue at GitHub](https://github.com/FX31337/FX-Data-Generate-Action/issues).
-- Join our [Telegram group][tg-chat-link] and [channel][tg-channel-link] for help.
 
 <!-- Named links -->
 
-[github-release-image]: https://img.shields.io/github/release/FX31337/FX-Data-Generate-Action.svg?logo=github
-[github-release-link]: https://github.com/FX31337/FX-Data-Generate-Action/releases
+[github-tag-image]: https://img.shields.io/github/tag/FX31337/FX-Data-Generate-Action.svg?logo=github
+[github-tag-link]: https://github.com/FX31337/FX-Data-Generate-Action/tags
 
-[tg-channel-image]: https://img.shields.io/badge/Telegram-news-0088CC.svg?logo=telegram
-[tg-channel-link]: https://t.me/EA31337_News
-[tg-chat-image]: https://img.shields.io/badge/Telegram-chat-0088CC.svg?logo=telegram
-[tg-chat-link]: https://t.me/EA31337
+[tg-channel-image]: https://img.shields.io/badge/Telegram-join-0088CC.svg?logo=telegram
+[tg-channel-link]: https://t.me/EA31337
 
 [gha-link-action-master]: https://github.com/FX31337/FX-Data-Generate-Action/actions?query=workflow%3AAction+branch%3Amaster
 [gha-image-action-master]: https://github.com/FX31337/FX-Data-Generate-Action/workflows/Action/badge.svg
