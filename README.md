@@ -3,6 +3,7 @@
 [![Tag][github-tag-image]][github-tag-link]
 [![Status][gha-image-action-master]][gha-link-action-master]
 [![Status][gha-image-docker-master]][gha-link-docker-master]
+[![Status][gha-image-check-master]][gha-link-check-master]
 [![Channel][tg-channel-image]][tg-channel-link]
 [![Edit][gitpod-image]][gitpod-link]
 
@@ -142,6 +143,8 @@ Foo bar.
 [gha-image-action-master]: https://github.com/FX31337/FX-Data-Generate-Action/workflows/Action/badge.svg
 [gha-link-docker-master]: https://github.com/FX31337/FX-Data-Generate-Action/actions?query=workflow%3ADocker+branch%3Amaster
 [gha-image-docker-master]: https://github.com/FX31337/FX-Data-Generate-Action/workflows/Docker/badge.svg
+[gha-link-check-master]: https://github.com/FX31337/FX-Data-Generate-Action/actions?query=workflow%3ACheck+branch%3Amaster
+[gha-image-check-master]: https://github.com/FX31337/FX-Data-Generate-Action/workflows/Check/badge.svg
 
 [gitpod-image]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
 [gitpod-link]: https://gitpod.io/#https://github.com/FX31337/FX-Data-Generate-Action

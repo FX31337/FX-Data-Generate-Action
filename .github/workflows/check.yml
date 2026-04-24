@@ -4,11 +4,12 @@ name: Check
 on:
   pull_request:
   push:
+  schedule:
+    - cron: '0 0 * * 1'  # Run every Monday at 00:00 UTC
+  workflow_dispatch:
 
 jobs:
-  Pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
-      - uses: pre-commit/action@v2.0.2
+  check:
+    uses: FX31337/.github/.github/workflows/check.yml@master
+    with:
+      submodules: 'false'
